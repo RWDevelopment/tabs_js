@@ -68,7 +68,7 @@
   </main>
   
   <script>
-    const triggerTabs = [...document.querySelectorAll('nav ul li a')],
+    const triggerTabs = [...document.querySelectorAll('nav ul li [role=tab]')],
     dataTabs = [...document.querySelectorAll('section [role=tabpanel]')];
 
     triggerTabs.forEach( (tab)=> {
