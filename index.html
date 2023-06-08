@@ -5,85 +5,133 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
   <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
   <style>
-    nav[aria-label=breadcrumb] ul li:not(:last-child) ::after {
-      content: "|";
-    }
-    section {
-      margin: calc(var(--block-spacing-vertical)*.5) 0;
-    }
-    section [role=tabpanel] {
-      animation-duration: 0.3s;
-      animation-fill-mode: both;
-      animation-name: slideIn;
-    }
-    @keyframes slideIn {
-      0% {
-        transform: translateY(1rem);
-        opacity: 0;
+
+nav[aria-label=breadcrumb] ul {
+  width: 100%;
+}
+nav[aria-label=breadcrumb] ul li {
+  display:flex;justify-content: center;align-items: center;
+}
+nav[aria-label=breadcrumb] ul li:not(:last-child) ::after {
+  content: "";
+}
+
+[role=tab] {
+  border-bottom: 2px solid transparent;
+  padding: var(--nav-link-spacing-vertical) calc(var(--nav-link-spacing-horizontal)*1.5);
+  user-select: none;
+  color: var(--secondary);
+  border-radius: 0;
+  background: transparent;
+  transition: all .25s;
+}
+[role=tab][aria-current]{
+  color: var(--contrast)!important;
+  border-color: var(--contrast);
+}
+
+      section {
+        margin: calc(var(--block-spacing-vertical)*.5) 0;
       }
-      100% {
-        transform:translateY(0rem);
-        opacity: 1;
+      section [role=tabpanel] {
+        animation-duration: 0.3s;
+        animation-fill-mode: both;
+        animation-name: slideIn;
       }
-      0% {
-        transform: translateY(1rem);
-        opacity: 0;
-      }
+
+        @keyframes slideIn {
+    0% {
+      transform: translateY(1rem);
+      opacity: 0;
     }
-   </style>
+    100% {
+      transform:translateY(0rem);
+      opacity: 1;
+    }
+    0% {
+      transform: translateY(1rem);
+      opacity: 0;
+    }
+  }
+    </style>
 </head>
 <body>
-  <main class="container">
 
-    <nav aria-label="breadcrumb">
+<header class="container">
+
+<nav aria-label="breadcrumb">
       <ul>
-        <li><a href="#" role="tab">Tab 1</a></li>
-        <li><a href="#" role="tab">Tab 2</a></li>
-        <li><a href="#" role="tab">Tab 3</a></li>
-        <li><a href="#" role="tab">Tab 4</a></li>
+        <li><a href="#" role="tab">Content</a></li>
+        <li><a href="#" role="tab">Description</a></li>
+        <li><a href="#" role="tab">Images</a></li>
+        <li><a href="#" role="tab">Info</a></li>
+      </ul>
+      <ul style="justify-content: flex-end;">
+        <li><input type="checkbox" id="switch" name="switch" role="switch" style="margin-right: 0;"></li>
       </ul>
     </nav>
+</header>
 
-    <hr>
-
+<main class="container">
+  
+      
+        
+      
     <section>
       <div role="tabpanel">
-        <h3>Title 1</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere quia nisi voluptate tempora itaque nostrum, consequatur tempore ab nobis enim eos eaque modi quaerat, ad provident, reiciendis sapiente rerum nihil!</p> 
+        <h3>Content</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam iure hic omnis, consequuntur dolores et laudantium! Veniam magni beatae dolore ipsum repudiandae itaque recusandae id eaque iusto asperiores? Quas, culpa? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere quia nisi voluptate tempora itaque nostrum, consequatur tempore ab nobis enim eos eaque modi quaerat, ad provident, reiciendis sapiente rerum nihil!</p> 
       </div>
       <div role="tabpanel" hidden>
-        <h3>Title 2</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere quia nisi voluptate tempora itaque nostrum, consequatur tempore ab nobis enim eos eaque modi quaerat, ad provident, reiciendis sapiente rerum nihil!</p> 
+        <h3>Description</h3>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis ex cumque corrupti modi culpa sapiente in, ullam, odio vero hic libero animi! Expedita quo natus commodi laboriosam libero eos magni. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere quia nisi voluptate tempora itaque nostrum, consequatur tempore ab nobis enim eos eaque modi quaerat, ad provident, reiciendis sapiente rerum nihil!</p> 
       </div>
       <div role="tabpanel" hidden>
-        <h3>Title 3</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere quia nisi voluptate tempora itaque nostrum, consequatur tempore ab nobis enim eos eaque modi quaerat, ad provident, reiciendis sapiente rerum nihil!</p> 
+        <h3>Images</h3>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem ex quia debitis fugiat quas placeat, nisi ad omnis exercitationem quam, ut, quod sint dolore. Quisquam quos odio quaerat ipsa incidunt? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere quia nisi voluptate tempora itaque nostrum, consequatur tempore ab nobis enim eos eaque modi quaerat, ad provident, reiciendis sapiente rerum nihil!</p> 
       </div>
       <div role="tabpanel" hidden>
-        <h3>Title 4</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere quia nisi voluptate tempora itaque nostrum, consequatur tempore ab nobis enim eos eaque modi quaerat, ad provident, reiciendis sapiente rerum nihil!</p>
+        <h3>Info</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum veniam ullam illum qui, quisquam ex provident magni sunt repellendus consectetur iste dicta nam alias, ea culpa reprehenderit at animi aliquid. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere quia nisi voluptate tempora itaque nostrum, consequatur tempore ab nobis enim eos eaque modi quaerat, ad provident, reiciendis sapiente rerum nihil!</p>
       </div>
     </section>
 
-  </main>
-  
+
+
+</main>
+
+
   <script>
-    const triggerTabs = [...document.querySelectorAll('nav ul li [role=tab]')],
-    dataTabs = [...document.querySelectorAll('section [role=tabpanel]')];
+    const _ = el => [...document.querySelectorAll(el)];
 
-    triggerTabs.forEach( (tab)=> {
+    _('[role=tab]')[0].setAttribute('aria-current', true);
+
+    _('[role=tab]').forEach(tab=> {
+
       tab.addEventListener('click', (e) => {
-        
         e.preventDefault();
-        dataTabs.forEach( (dataTab)=> {
 
-          dataTabs.indexOf(dataTab) == triggerTabs.indexOf(e.target) ? 
-          dataTab.removeAttribute('hidden') : 
-          dataTab.setAttribute('hidden', true);
-
+        !e.target.hasAttribute('aria-current') ?
+        e.target.setAttribute('aria-current', true) :
+        null;
+        
+        _('[role=tab]').forEach(t=> {
+          
+          t.hasAttribute('aria-current') && t != e.target ?
+          t.removeAttribute('aria-current') :
+          null;
+           
         });
         
+        _('[role=tabpanel]').forEach(tabpanel=> {
+
+          _('[role=tabpanel]').indexOf(tabpanel) == _('[role=tab]').indexOf(e.target) ? 
+          tabpanel.removeAttribute('hidden') : 
+          tabpanel.setAttribute('hidden', true);
+
+        });
       });
+
     });
   </script>
 </body>
