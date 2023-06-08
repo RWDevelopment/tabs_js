@@ -104,10 +104,10 @@ _('[role=tab]').forEach(tab=> {
           null;
         });
         
-        _('[role=tabpanel]').forEach(tabpanel=> {
-          _('[role=tabpanel]').indexOf(tabpanel) == _('[role=tab]').indexOf(e.target) ? 
-          tabpanel.removeAttribute('hidden') : 
-          tabpanel.setAttribute('hidden', true);
+        _('[role=tabpanel]').forEach(tp=> {
+          _('[role=tabpanel]').indexOf(tp) == _('[role=tab]').indexOf(e.target) ? 
+          tp.removeAttribute('hidden') : 
+          tp.setAttribute('hidden', true);
         });
         
   });
