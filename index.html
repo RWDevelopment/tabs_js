@@ -4,8 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
   <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
-  <style>
-
+<style>
 nav[aria-label=breadcrumb] ul {
   width: 100%;
 }
@@ -15,7 +14,6 @@ nav[aria-label=breadcrumb] ul li {
 nav[aria-label=breadcrumb] ul li:not(:last-child) ::after {
   content: "";
 }
-
 [role=tab] {
   border-bottom: 2px solid transparent;
   padding: var(--nav-link-spacing-vertical) calc(var(--nav-link-spacing-horizontal)*1.5);
@@ -29,17 +27,15 @@ nav[aria-label=breadcrumb] ul li:not(:last-child) ::after {
   color: var(--contrast)!important;
   border-color: var(--contrast);
 }
-
-      section {
-        margin: calc(var(--block-spacing-vertical)*.5) 0;
-      }
-      section [role=tabpanel] {
-        animation-duration: 0.3s;
-        animation-fill-mode: both;
-        animation-name: slideIn;
-      }
-
-        @keyframes slideIn {
+section {
+  margin: calc(var(--block-spacing-vertical)*.5) 0;
+}
+section [role=tabpanel] {
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+  animation-name: slideIn;
+}
+@keyframes slideIn {
     0% {
       transform: translateY(1rem);
       opacity: 0;
@@ -52,28 +48,23 @@ nav[aria-label=breadcrumb] ul li:not(:last-child) ::after {
       transform: translateY(1rem);
       opacity: 0;
     }
-  }
-    </style>
+}
+</style>
 </head>
 <body>
 
 <header class="container">
-
-<nav aria-label="breadcrumb">
+  <nav aria-label="breadcrumb">
       <ul>
         <li><a href="#" role="tab">Content</a></li>
         <li><a href="#" role="tab">Description</a></li>
         <li><a href="#" role="tab">Images</a></li>
         <li><a href="#" role="tab">Info</a></li>
       </ul>
-    </nav>
+  </nav>
 </header>
 
 <main class="container">
-  
-      
-        
-      
     <section>
       <div role="tabpanel">
         <h3>Content</h3>
@@ -92,20 +83,15 @@ nav[aria-label=breadcrumb] ul li:not(:last-child) ::after {
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum veniam ullam illum qui, quisquam ex provident magni sunt repellendus consectetur iste dicta nam alias, ea culpa reprehenderit at animi aliquid. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere quia nisi voluptate tempora itaque nostrum, consequatur tempore ab nobis enim eos eaque modi quaerat, ad provident, reiciendis sapiente rerum nihil!</p>
       </div>
     </section>
-
-
-
 </main>
 
+<script>
+const _ = el => [...document.querySelectorAll(el)];
+_('[role=tab]')[0].setAttribute('aria-current', true);
 
-  <script>
-    const _ = el => [...document.querySelectorAll(el)];
-
-    _('[role=tab]')[0].setAttribute('aria-current', true);
-
-    _('[role=tab]').forEach(tab=> {
-
-      tab.addEventListener('click', (e) => {
+_('[role=tab]').forEach(tab=> {
+  tab.addEventListener('click', (e) => {
+    
         e.preventDefault();
 
         !e.target.hasAttribute('aria-current') ?
@@ -113,23 +99,19 @@ nav[aria-label=breadcrumb] ul li:not(:last-child) ::after {
         null;
         
         _('[role=tab]').forEach(t=> {
-          
           t.hasAttribute('aria-current') && t != e.target ?
           t.removeAttribute('aria-current') :
           null;
-           
         });
         
         _('[role=tabpanel]').forEach(tabpanel=> {
-
           _('[role=tabpanel]').indexOf(tabpanel) == _('[role=tab]').indexOf(e.target) ? 
           tabpanel.removeAttribute('hidden') : 
           tabpanel.setAttribute('hidden', true);
-
         });
-      });
-
-    });
-  </script>
+        
+  });
+});
+</script>
 </body>
 </html>
